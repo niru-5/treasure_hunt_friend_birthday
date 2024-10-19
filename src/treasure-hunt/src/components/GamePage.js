@@ -9,6 +9,7 @@ const GamePage = () => {
   const { code } = useParams();
   const [questions, setQuestions] = useState([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [isGameFinished, setIsGameFinished] = useState(false);
   
   useEffect(() => {
     const loadQuestionsAndCode = async () => {
@@ -33,7 +34,11 @@ const GamePage = () => {
         // Find the matching code and set the current question index
         const matchingCode = parsedCodes.find(item => item.code === code);
         if (matchingCode && matchingCode.current_question !== null) {
-          setCurrentQuestionIndex(matchingCode.current_question); // Subtract 1 because array is 0-indexed
+          if (parsedQuestions.questions.length > matchingCode.current_question) {
+            setCurrentQuestionIndex(matchingCode.current_question); // Subtract 1 because array is 0-indexed
+          } else {
+            setIsGameFinished(true);
+          }
         } else {
           console.error("Code not found or current_question is null");
         }
@@ -68,27 +73,48 @@ const GamePage = () => {
 
   const handleNextQuestion = () => {
     const newIndex = currentQuestionIndex + 1;
-    setCurrentQuestionIndex(newIndex);
-    updateProgress(newIndex);
+    if (newIndex < questions.length) {
+      setCurrentQuestionIndex(newIndex);
+      updateProgress(newIndex);
+    } else {
+      updateProgress(newIndex);
+      setIsGameFinished(true);
+    }
+  };
+
+  const renderContent = () => {
+    if (questions.length === 0) {
+      return <p style={styles.loading}>Preparing your route...</p>;
+    }
+
+    if (isGameFinished) {
+      return (
+        <div style={styles.endContainer}>
+          <h2 style={styles.endTitle}>Congratulations!</h2>
+          <p style={styles.endMessage}>You've completed the Cycle Quest!</p>
+          <div style={styles.endEmoji}>🎉🚴‍♂️🏆</div>
+        </div>
+      );
+    }
+
+    return (
+      <div style={styles.questionContainer}>
+        <QuestionComponent 
+          question={questions[currentQuestionIndex]}
+          onNext={handleNextQuestion}
+        />
+        <p style={styles.progress}>
+          Checkpoint {currentQuestionIndex + 1} of {questions.length}
+        </p>
+      </div>
+    );
   };
 
   return (
     <div style={styles.container}>
       <h1 style={styles.title}>Cycle Quest</h1>
       <div style={styles.bicycle}>🚴‍♂️</div>
-      {questions.length > 0 ? (
-        <div style={styles.questionContainer}>
-          <QuestionComponent 
-            question={questions[currentQuestionIndex]}
-            onNext={handleNextQuestion}
-          />
-          <p style={styles.progress}>
-            Checkpoint {currentQuestionIndex + 1} of {questions.length}
-          </p>
-        </div>
-      ) : (
-        <p style={styles.loading}>Preparing your route...</p>
-      )}
+      {renderContent()}
       <div style={styles.cycleTrack}>🚴‍♂️💨 . . . . . . . . . . . . . . . . . . . . 🏁</div>
     </div>
   );
@@ -136,6 +162,29 @@ const styles = {
     fontSize: '1.5rem',
     marginTop: '2rem',
     letterSpacing: '2px',
+  },
+  endContainer: {
+    backgroundColor: 'white',
+    padding: '2rem',
+    borderRadius: '10px',
+    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+    maxWidth: '600px',
+    width: '100%',
+    textAlign: 'center',
+  },
+  endTitle: {
+    fontSize: '2rem',
+    color: '#333',
+    marginBottom: '1rem',
+  },
+  endMessage: {
+    fontSize: '1.2rem',
+    color: '#666',
+    marginBottom: '1rem',
+  },
+  endEmoji: {
+    fontSize: '3rem',
+    marginTop: '1rem',
   },
 };
 

@@ -4,9 +4,9 @@
 - code: s
   user: Srijan
   current_question: null
-- code: n
+- code: 'n'
   user: neesha
-  current_question: null
+  current_question: 2
 - code: gravel
   user: Sarthak
   current_question: null
