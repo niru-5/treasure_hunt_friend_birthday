@@ -1,7 +1,7 @@
 // App.js
 
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import HomePage from './components/HomePage'; // Home page where the user enters the code
 import GamePage from './components/GamePage'; // The game page where questions are shown
 
