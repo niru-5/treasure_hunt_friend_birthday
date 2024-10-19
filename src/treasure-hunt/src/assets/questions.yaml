@@ -1,0 +1,11 @@
+questions:
+  - id: 1
+    text: "What is the capital of France?"
+    image: paris.jpg
+    answer: "Paris"
+    clue: "It's a city of love."
+  - id: 2
+    text: "Solve this riddle: What has keys but can't open locks?"
+    image: keyboard.jpg
+    answer: "Keyboard"
+    clue: "You use it to type."
