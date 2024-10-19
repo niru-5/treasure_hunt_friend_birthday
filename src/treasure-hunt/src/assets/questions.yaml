@@ -1,9 +1,9 @@
 questions:
   - id: 1
-    text: "What is the capital of France?"
+    text: "Capital City of Cycles"
     image: paris.jpg
-    answer: "Paris"
-    clue: "It's a city of love."
+    answer: "amsterdam"
+    clue: "space cakes"
   - id: 2
     text: "Solve this riddle: What has keys but can't open locks?"
     image: keyboard.jpg

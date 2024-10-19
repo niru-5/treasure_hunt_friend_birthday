@@ -73,17 +73,70 @@ const GamePage = () => {
   };
 
   return (
-    <div>
+    <div style={styles.container}>
+      <h1 style={styles.title}>Cycle Quest</h1>
+      <div style={styles.bicycle}>🚴‍♂️</div>
       {questions.length > 0 ? (
-        <QuestionComponent 
-          question={questions[currentQuestionIndex]}
-          onNext={handleNextQuestion}
-        />
+        <div style={styles.questionContainer}>
+          <QuestionComponent 
+            question={questions[currentQuestionIndex]}
+            onNext={handleNextQuestion}
+          />
+          <p style={styles.progress}>
+            Checkpoint {currentQuestionIndex + 1} of {questions.length}
+          </p>
+        </div>
       ) : (
-        <p>Loading questions...</p>
+        <p style={styles.loading}>Preparing your route...</p>
       )}
+      <div style={styles.cycleTrack}>🚴‍♂️💨 . . . . . . . . . . . . . . . . . . . . 🏁</div>
     </div>
   );
+};
+
+const styles = {
+  container: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    minHeight: '100vh',
+    padding: '20px',
+    backgroundColor: '#f0f0f0',
+    backgroundImage: 'linear-gradient(#87CEEB, #E0F6FF)',
+  },
+  title: {
+    fontSize: '2.5rem',
+    color: '#333',
+    marginBottom: '1rem',
+  },
+  bicycle: {
+    fontSize: '4rem',
+    marginBottom: '2rem',
+  },
+  questionContainer: {
+    backgroundColor: 'white',
+    padding: '2rem',
+    borderRadius: '10px',
+    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+    maxWidth: '600px',
+    width: '100%',
+  },
+  loading: {
+    fontSize: '1.2rem',
+    color: '#666',
+  },
+  progress: {
+    marginTop: '1rem',
+    fontSize: '1rem',
+    color: '#666',
+    textAlign: 'center',
+  },
+  cycleTrack: {
+    fontSize: '1.5rem',
+    marginTop: '2rem',
+    letterSpacing: '2px',
+  },
 };
 
 export default GamePage;
