@@ -49,7 +49,7 @@ const GamePage = () => {
     loadQuestionsAndCode();
   }, [code]);
 
-  console.log("Current questions state:", questions);
+  // console.log("Current questions state:", questions);
 
   const updateProgress = async (newIndex) => {
     try {

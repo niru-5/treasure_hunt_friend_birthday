@@ -7,13 +7,18 @@ const QuestionComponent = ({ question, onNext }) => {
   const [imageError, setImageError] = useState(false);
 
   useEffect(() => {
-    console.log("Current question:", question);
+    // console.log("Current question:", question);
     console.log("Image path:", question.image);
+    if (question.id === 3) {
+      console.log("The answer is -> genius ");
+    }
   }, [question]);
 
   const handleAnswerSubmit = () => {
     if (answer.toLowerCase() === question.answer.toLowerCase()) {
       onNext(); // Move to the next question
+      // clear the answer
+      setAnswer('');
     } else {
       setClue(question.clue);
       setError('Wrong turn! Try again!');
@@ -31,7 +36,7 @@ const QuestionComponent = ({ question, onNext }) => {
       {question.image && (
         <div style={styles.imageContainer}>
           <img 
-            src={`/images/${question.image}`} 
+            src={`${process.env.PUBLIC_URL}/images/${question.image}`} 
             alt="clue" 
             onError={handleImageError}
             style={styles.image}
@@ -43,6 +48,12 @@ const QuestionComponent = ({ question, onNext }) => {
         type="text"
         value={answer}
         onChange={(e) => setAnswer(e.target.value)}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter') {
+            e.preventDefault();
+            handleAnswerSubmit();
+          }
+        }}
         placeholder="Your answer"
         style={styles.input}
       />

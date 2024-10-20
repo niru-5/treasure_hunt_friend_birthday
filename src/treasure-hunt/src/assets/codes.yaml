@@ -1,15 +1,15 @@
 - code: m
   user: Mimansha
-  current_question: null
+  current_question: 6
 - code: s
   user: Srijan
-  current_question: null
+  current_question: 0
 - code: 'n'
   user: neesha
-  current_question: 2
+  current_question: 0
 - code: gravel
   user: Sarthak
-  current_question: null
+  current_question: 0
 - code: nir
   user: Niranjan
-  current_question: null
+  current_question: 0
