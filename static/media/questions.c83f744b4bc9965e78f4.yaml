@@ -1,0 +1,31 @@
+questions:
+  - id: 1
+    text: "Lets Keep it Easy, Belgian cyclist with olympic gold"
+    image: question_1.jpg
+    answer: "remco evenepoel"
+    clue: "Not sure if he is your favorite. but he is my favorite."
+  - id: 2
+    text: "Guess the part name of the bike?"
+    image: question_2.jpg
+    answer: "fork"
+    clue: "You also eat with this."
+  - id: 3
+    text: "Debug the site"
+    image: question_3.jpg
+    answer: "genius"
+    clue: "Be a hacker man"
+  - id: 4
+    text: "Time to test your math skills, solve the below equation"
+    image: question_4.jpg
+    answer: "4"
+    clue: "Come on man, you can do this."
+  - id: 5
+    text: "Where is this food from?"
+    image: question_5.jpg
+    answer: "italy"
+    clue: "andiamo !!"
+  - id: 6
+    text: "Whose hand is in the photo?"
+    image: question_6.jpg
+    answer: "mimansha"
+    clue: "She will be mad if you don't know this"
