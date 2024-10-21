@@ -1,6 +1,6 @@
 - code: m
   user: Mimansha
-  current_question: 0
+  current_question: 9
 - code: s
   user: Srijan
   current_question: 0
@@ -12,4 +12,10 @@
   current_question: 0
 - code: nir
   user: Niranjan
+  current_question: 0
+- code: test
+  user: test_user
+  current_question: 0
+- code: test1
+  user: test_user1
   current_question: 0

@@ -39,7 +39,7 @@ const QuestionComponent = ({ question, onNext }) => {
             src={`${process.env.PUBLIC_URL}/images/${question.image}`} 
             alt="clue" 
             onError={handleImageError}
-            style={styles.image}
+            style={styles.centeredImage}
           />
           {imageError && <p style={styles.imageError}>Failed to load image. Path: {question.image}</p>}
         </div>
@@ -79,11 +79,16 @@ const styles = {
   imageContainer: {
     marginBottom: '1rem',
     width: '100%',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
-  image: {
+  centeredImage: {
     maxWidth: '100%',
     height: 'auto',
     borderRadius: '8px',
+    display: 'block',
+    margin: '0 auto',
   },
   imageError: {
     color: 'red',

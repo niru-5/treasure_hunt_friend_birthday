@@ -92,6 +92,8 @@ const GamePage = () => {
         <div style={styles.endContainer}>
           <h2 style={styles.endTitle}>Congratulations!</h2>
           <p style={styles.endMessage}>You've completed the Cycle Quest!</p>
+          <br />
+          <p style={styles.endMessage}>Come to Bar Rustic at 18:30 to collect your prize</p>
           <div style={styles.endEmoji}>🎉🚴‍♂️🏆</div>
         </div>
       );
