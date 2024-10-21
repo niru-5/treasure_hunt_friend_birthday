@@ -32,7 +32,7 @@ questions:
   - id: 7
     text: "_________ tonight?"
     image: question_7.jpg
-    answer: "Liason"
+    answer: "Liaison"
     clue: "Make sure you have some game"
   - id: 8
     text: "What is missing with this?"
@@ -43,4 +43,4 @@ questions:
     text: "Which is the correct color?"
     image: question_9.jpg
     answer: "blue"
-    clue: "We know there is no correct answer, but there is a correct color"
+    clue: "You cannot escape the matrix"
