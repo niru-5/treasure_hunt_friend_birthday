@@ -43,4 +43,4 @@ questions:
     text: "Which is the correct color?"
     image: question_9.jpg
     answer: "blue"
-    clue: "We know there is no correct answer, but there is a correct color"
+    clue: "You cannot escape the matrix"
